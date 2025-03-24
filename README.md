@@ -48,15 +48,15 @@ You can install Postman via this website: https://www.postman.com/downloads/
     (You might want to use `cargo check` if you only need to verify your work without running the app.)
 
 ## Mandatory Checklists (Publisher)
--   [ ] Clone https://gitlab.com/ichlaffterlalu/bambangshop to a new repository.
+-   [v] Clone https://gitlab.com/ichlaffterlalu/bambangshop to a new repository.
 -   **STAGE 1: Implement models and repositories**
-    -   [ ] Commit: `Create Subscriber model struct.`
-    -   [ ] Commit: `Create Notification model struct.`
-    -   [ ] Commit: `Create Subscriber database and Subscriber repository struct skeleton.`
-    -   [ ] Commit: `Implement add function in Subscriber repository.`
-    -   [ ] Commit: `Implement list_all function in Subscriber repository.`
-    -   [ ] Commit: `Implement delete function in Subscriber repository.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
+    -   [v] Commit: `Create Subscriber model struct.`
+    -   [v] Commit: `Create Notification model struct.`
+    -   [v] Commit: `Create Subscriber database and Subscriber repository struct skeleton.`
+    -   [v] Commit: `Implement add function in Subscriber repository.`
+    -   [v] Commit: `Implement list_all function in Subscriber repository.`
+    -   [v] Commit: `Implement delete function in Subscriber repository.`
+    -   [v] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
     -   [ ] Commit: `Create Notification service struct skeleton.`
     -   [ ] Commit: `Implement subscribe function in Notification service.`
@@ -77,6 +77,9 @@ This is the place for you to write reflections:
 ### Mandatory (Publisher) Reflections
 
 #### Reflection Publisher-1
+1. Dalam kasus ini, kita tidak membutuhkan interface atau trait karena kita hanya memiliki satu observer, yaitu Subscriber. Biasanya, interface atau trait digunakan ketika kita bekerja dengan berbagai jenis observer yang dikelompokkan dalam kelas yang berbeda, namun di sini, satu kelas sudah cukup untuk memenuhi kebutuhan.
+2. Dashmap sangat mempermudah pengelolaan data produk beserta subscriber-nya. Jika kita hanya menggunakan vektor, kita akan membutuhkan dua vektor terpisah, yang tentu saja membuat pencarian data menjadi lebih rumit dan kurang efisien.
+3. Dashmap adalah built-in data structure yang mendukung multithreading. Dalam aplikasi Bambangshop yang menggunakan multithreading, Map Subscriber akan diakses oleh banyak thread. Singleton memastikan bahwa hanya ada satu instance objek yang berjalan selama program, yang menjaga agar daftar subscriber terhadap produk tetap berada dalam satu Dashmap.
 
 #### Reflection Publisher-2
 
