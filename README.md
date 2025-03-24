@@ -65,11 +65,11 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [v] Commit: `Implement unsubscribe function in Notification controller.`
     -   [v] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
-    -   [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
-    -   [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
-    -   [ ] Commit: `Implement publish function in Program service and Program controller.`
-    -   [ ] Commit: `Edit Product service methods to call notify after create/delete.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
+    -   [v] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
+    -   [v] Commit: `Implement notify function in Notification service to notify each Subscriber.`
+    -   [v] Commit: `Implement publish function in Program service and Program controller.`
+    -   [v] Commit: `Edit Product service methods to call notify after create/delete.`
+    -   [v] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -87,3 +87,6 @@ This is the place for you to write reflections:
 3. Postman adalah alat yang sangat berguna untuk menguji endpoint aplikasi kita. Dengan Postman, kita bisa mengeksplorasi bagaimana aplikasi merespons berbagai request, apakah sesuai dengan yang kita harapkan atau tidak.
 
 #### Reflection Publisher-3
+1. Di sini kita menerapkan Push Model, di mana setiap kali terjadi perubahan data, baik itu create, update, atau delete, akan memicu pemanggilan NotificationService. Service ini yang akan mengiterasi semua subscriber dan memberikan update terbaru.
+2. Pull Model memiliki keuntungan dalam hal efisiensi. Program hanya akan mengirimkan data ketika subscriber memerlukannya, yang berarti resource akan lebih hemat, tidak hanya itu observer dapat memilih apakah perubahan data tersebut relevan atau tidak. Namun, tantangannya adalah observer harus mengetahui struktur data sumbernya agar bisa melakukan request yang tepat.
+3. Tanpa menggunakan multithreading, kita akan menghadapi masalah antrian panjang karena NotificationService harus memberi tahu tiap subscriber satu per satu, yang bisa menyebabkan bottleneck dan memperlambat pengiriman notifikasi.
